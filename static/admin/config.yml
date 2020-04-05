@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: 'static/images/uploads'
+public_folder: '/images/uploads'
+collections:
+  - name: 'topics'
+    label: 'Emner'
+    label_singular: 'Emne'
+    folder: 'content/topics'
+    create: true
+    slug: '{{slug}}'
+    format: 'json'
+    fields:
+      - label: 'Emne'
+        name: 'title'
+        widget: 'string'
+      - label: 'Beskrivelse'
+        name: 'description'
+        widget: 'markdown'
+        hint: '(Valgfritt) Tekst som dukker opp på emne-siden hvor lister over artikler ligger'
+  - name: 'articles'
+    label: 'Artikler'
+    label_singular: 'Artikkel'
+    description: >
+      Obs! Dersom du skal skrive en artikkel innenfor et emne som ennå
+      ikke eksisterer, vennligst opprett emnet før du begynner å skrive.
+    folder: 'content/articles'
+    create: true
+    slug: '{{topic}}/{{slug}}'
+    format: 'json'
+    fields:
+      - label: 'Tittel'
+        name: 'title'
+        widget: 'string'
+      - label: 'Emne'
+        name: 'topic'
+        widget: 'relation'
+        collection: 'topics'
+        displayFields: ['title']
+        searchFields: ['title']
+        valueField: '{{relation}}'
+      - label: 'Tekst'
+        name: 'text'
+        widget: 'markdown'
+      - label: 'Publiseringsdato'
+        name: 'date',
+        widget: 'datetime'
+        dateFormat: 'YYYY-MM-DD'
+        timeFormat: 'HH:mm'
+        format: 'YYYY-MM-DD HH:mm'
+      - label: 'Kilder',
+        name: 'sources'
+        widget: 'list'
+          - label: 'Navn'
+            name: 'name'
+            widget: 'string'
+            hint: 'Tittel på kilden'
+          - label: 'Nettadresse'
+            name: 'url'
+            widget: 'string'
+            hint: 'URL, starter med https://…'
+  - name: 'settings'
+    label: 'Sideinformasjon'
+    delete: false,
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Innstillinger'
+        file: 'content/site/info.json'
+        fields:
+          - label: 'Sidetittel'
+            name: 'title'
+            widget: 'string'
+          - label: 'Kort beskrivelse'
+            name: 'description'
+            widget: 'string'
+          - label: 'Forsidetekst'
+            name: 'frontpagetext'
+            widget: 'markdown'
+      - name: 'authors'
+        label: 'Forfattere'
+        file: 'content/site/authors.json'
+        description: 'Author descriptions'
+        fields:
+          - name: authors
+            label: 'Forfattere'
+            label_singular: 'Forfatter'
+            widget: list
+            fields:
+              - label: 'Nave'
+                name: 'name'
+                widget: 'string'
+                hint: 'Fornavn og etternavn'
+              - label: 'Kort beskrivelse'
+                name: 'description'
+                widget: 'string'
