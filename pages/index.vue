@@ -34,7 +34,6 @@ export default {
     Search
   },
   async asyncData ({ app }) {
-    console.log('home AsyncData')
     const context = await require.context('~/content/topics/', false, /\.json$/);
     const topics = await context.keys().map(key => ({
       ...context(key),

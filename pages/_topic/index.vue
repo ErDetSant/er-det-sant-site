@@ -24,7 +24,6 @@ export default {
     Search
   },
   async asyncData ({ params, app }) {
-    console.log('topic AsyncData')
     const topic = await import(`~/content/topics/${params.topic}.json`)
     const context = await require.context('~/content/articles/', false, /\.json$/);
     let articles = await context.keys().map(key => ({
@@ -35,7 +34,6 @@ export default {
       id: params.topic,
       name: topic.name
     }
-    console.log(topicData, articles)
     return {
       topic: topicData,
       articles: articles.filter((article) => {

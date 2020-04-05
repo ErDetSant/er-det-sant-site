@@ -25,14 +25,12 @@ export default {
     Search
   },
   async asyncData ({ params, error }) {
-    console.log('article AsyncData')
     if (params.topic && params.article) {
       const topic = await import(`~/content/topics/${params.topic}.json`)
       const article = await import(`~/content/articles/${params.topic}/${params.article}.json`)
       if (!topic.default.name || !article.default.title) {
         error({ statusCode: 404, message: 'Page not found' })
       }
-      console.log(topic.default, article.default)
 
       return {
         topic: { ...topic.default, id: params.topic},
