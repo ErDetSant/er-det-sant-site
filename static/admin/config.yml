@@ -56,7 +56,7 @@ collections:
         displayFields: ['name']
         searchFields: ['name']
         valueField: 'name'
-      - label: 'Kilder',
+      - label: 'Kilder'
         name: 'sources'
         widget: 'list'
           - label: 'Navn'
@@ -69,7 +69,7 @@ collections:
             hint: 'URL, starter med https://…'
   - name: 'settings'
     label: 'Sideinformasjon'
-    delete: false,
+    delete: false
     editor:
       preview: false
     files:
