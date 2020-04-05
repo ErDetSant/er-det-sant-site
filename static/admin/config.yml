@@ -44,7 +44,7 @@ collections:
         name: 'text'
         widget: 'markdown'
       - label: 'Publiseringsdato'
-        name: 'date',
+        name: 'date'
         widget: 'datetime'
         dateFormat: 'YYYY-MM-DD'
         timeFormat: 'HH:mm'
