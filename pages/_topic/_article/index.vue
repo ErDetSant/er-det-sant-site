@@ -13,6 +13,11 @@ import Search from '@/components/Search.vue'
 
 export default {
   name: 'ArticlePage',
+  head () {
+    return {
+      title: this.article.title + ' — ' + this.topic.name + ' — Er det sant? – Skepsis',
+    }
+  },
   transition (to, from) {
     if (!from) {
       return 'slide-left'

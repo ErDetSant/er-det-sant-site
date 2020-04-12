@@ -17,6 +17,12 @@ import Search from '@/components/Search.vue'
 
 export default {
   name: 'HomePage',
+  head () {
+    return {
+      title: 'Er det sant? – Skepsis',
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+    }
+  },
   transition (to, from) {
     if (!from) {
       return 'slide-left'

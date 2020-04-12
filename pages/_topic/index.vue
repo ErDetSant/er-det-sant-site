@@ -12,6 +12,11 @@ import Search from '@/components/Search.vue'
 
 export default {
   name: 'TopicPage',
+  head () {
+    return {
+      title: this.topic.name + ' — Er det sant? – Skepsis',
+    }
+  },
   transition (to, from) {
     if (!from) {
       return 'slide-left'
@@ -35,7 +40,7 @@ export default {
       return articles.filter((article) => {
         return this.$route.params.topic = article.topic
       })
-    }
+    },
   }
 }
 </script>
