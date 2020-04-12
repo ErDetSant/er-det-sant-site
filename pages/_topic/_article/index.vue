@@ -24,21 +24,25 @@ export default {
   components: {
     Search
   },
-  async asyncData ({ params, error }) {
-    if (params.topic && params.article) {
-      const topic = await import(`~/content/topics/${params.topic}.json`)
-      const article = await import(`~/content/articles/${params.topic}/${params.article}.json`)
-      if (!topic.default.name || !article.default.title) {
-        error({ statusCode: 404, message: 'Page not found' })
-      }
-
-      return {
-        topic: { ...topic.default, id: params.topic},
-        article: { ...article.default, id: params.article }
-      }
-    } else {
-       error({ statusCode: 404, message: 'Page not found' })
-    }
+  computed: {
+    topic () {
+      const topics = this.$store.state.topics
+      return topics.find((topic) => {
+        return this.$route.params.topic = topic.slug
+      })
+    },
+    articles () {
+      const articles = this.$store.state.articles
+      return articles.filter((article) => {
+        return this.$route.params.topic = article.topic
+      })
+    },
+    article () {
+      const articles = this.$store.state.articles
+      return articles.find((article) => {
+        return this.$route.params.article = article.slug
+      })
+    },
   },
 }
 </script>

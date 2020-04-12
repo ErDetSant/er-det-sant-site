@@ -7,7 +7,7 @@
       er flust av vranglære, feilinformasjon, kyniske aktører og direkte svindel. Velg et hovedtema,
       eller søk på det du lurer på.
     </p>
-    <ul class="topic-list"><li v-for="topic in topics" :key="topic.id"><nuxt-link :to="`/${topic.id}`">{{ topic.name }}</nuxt-link></li></ul>
+    <ul class="topic-list"><li v-for="topic in topics" :key="topic.slug"><nuxt-link :to="`/${topic.slug}`">{{ topic.name }}</nuxt-link></li></ul>
     <Search />
   </div>
 </template>
@@ -28,14 +28,9 @@ export default {
   components: {
     Search
   },
-  async asyncData ({ app }) {
-    const context = await require.context('~/content/topics/', false, /\.json$/);
-    const topics = await context.keys().map(key => ({
-      ...context(key),
-      id: key.replace('.json', '').replace('./', ''),
-    }));
-    return {
-      topics,
+  computed: {
+    topics() {
+      return this.$store.state.topics
     }
   },
 }

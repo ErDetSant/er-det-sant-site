@@ -2,7 +2,7 @@
   <div class="page">
     <h2><nuxt-link to="/">⇦ Tilbake til start</nuxt-link></h2>
     <h1>{{ topic.name }}:</h1>
-    <ul class="article-list"><li v-for="article in articles" :key="article.id"><nuxt-link :to="`/${topic.id}/${article.id}`">{{ article.title }}</nuxt-link></li></ul>
+    <ul class="article-list"><li v-for="article in articles" :key="article.slug"><nuxt-link :to="`/${article.slug}`">{{ article.title }}</nuxt-link></li></ul>
     <Search />
   </div>
 </template>
@@ -23,24 +23,20 @@ export default {
   components: {
     Search
   },
-  async asyncData ({ params, app }) {
-    const topic = await import(`~/content/topics/${params.topic}.json`)
-    const context = await require.context('~/content/articles/', false, /\.json$/);
-    let articles = await context.keys().map(key => ({
-      ...context(key),
-      id: key.replace('.json', '').replace('./', ''),
-    }));
-    const topicData = {
-      id: params.topic,
-      name: topic.name
-    }
-    return {
-      topic: topicData,
-      articles: articles.filter((article) => {
-        return article.topics.includes(params.topic)
+  computed: {
+    topic () {
+      const topics = this.$store.state.topics
+      return topics.find((topic) => {
+        return this.$route.params.topic = topic.slug
+      })
+    },
+    articles () {
+      const articles = this.$store.state.articles
+      return articles.filter((article) => {
+        return this.$route.params.topic = article.topic
       })
     }
-  },
+  }
 }
 </script>
 

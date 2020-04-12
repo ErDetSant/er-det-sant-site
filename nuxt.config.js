@@ -1,4 +1,5 @@
 import info from './content/site/info'
+import fs from 'fs'
 import path from 'path'
 import glob from 'glob'
 
@@ -6,8 +7,6 @@ var dynamicRoutes = getDynamicPaths({
   'topics': 'topics/*.json',
   'articles': 'articles/**/*.json',
 });
-
-console.log(dynamicRoutes)
 
 export default {
   mode: 'universal',
@@ -24,6 +23,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  vue: {
+    config: {
+      devtools: true
+    }
   },
   /*
   ** Customize the progress-bar color
@@ -69,6 +73,7 @@ export default {
   ** Build configuration
   */
   build: {
+    devtools: true,
     /*
     ** You can extend webpack config here
     */
@@ -77,7 +82,7 @@ export default {
   },
   generate: {
     routes: dynamicRoutes
-  }
+  },
 }
 
 /**
@@ -87,7 +92,6 @@ export default {
 function getDynamicPaths(urlFilepathTable) {
   return [].concat(
     ...Object.keys(urlFilepathTable).map(url => {
-      console.log(url)
       const filepathGlob = urlFilepathTable[url];
       return glob
         .sync(filepathGlob, { cwd: 'content' })
