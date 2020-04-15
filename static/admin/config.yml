@@ -40,7 +40,7 @@ collections:
         collection: 'topics'
         displayFields: ['name']
         searchFields: ['name']
-        valueField: '{{relation}}'
+        valueField: 'name'
       - label: 'Tekst'
         name: 'text'
         widget: 'markdown'
