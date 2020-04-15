@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <h2><nuxt-link :to="`/${topic.slug}`">⇦ {{ topic.name }}</nuxt-link></h2>
+    <h2><nuxt-link :to="`/${topic.slug}`">⇦ {{ topic.title }}</nuxt-link></h2>
     <h1>{{ article.title }}</h1>
     <div v-html="$md.render(article.text)"></div>
     <ul class="source-list"><li v-for="(source, i) in article.sources" :key="`source-${i}`"><a target="_blank" :href="source.url">{{ source.name }}</a></li></ul>
@@ -15,7 +15,7 @@ export default {
   name: 'ArticlePage',
   head () {
     return {
-      title: this.article.title + ' — ' + this.topic.name + ' — Er det sant? – Skepsis',
+      title: this.article.title + ' — ' + this.topic.title + ' — Er det sant? – Skepsis',
     }
   },
   transition (to, from) {

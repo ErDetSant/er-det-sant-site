@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <h2><nuxt-link to="/">⇦ Tilbake til start</nuxt-link></h2>
-    <h1>{{ topic.name }}:</h1>
+    <h1>{{ topic.title }}:</h1>
     <ul class="article-list"><li v-for="article in articles" :key="article.slug"><nuxt-link :to="`/${article.slug}`">{{ article.title }}</nuxt-link></li></ul>
     <Search />
   </div>
@@ -14,7 +14,7 @@ export default {
   name: 'TopicPage',
   head () {
     return {
-      title: this.topic.name + ' — Er det sant? – Skepsis',
+      title: this.topic.title + ' — Er det sant? – Skepsis',
     }
   },
   transition (to, from) {
@@ -38,7 +38,8 @@ export default {
     articles () {
       const articles = this.$store.state.articles
       return articles.filter((article) => {
-        return this.$route.params.topic = article.topic
+        console.log(article)
+        return this.$route.params.topic === article.slug.split('/')[0]
       })
     },
   }

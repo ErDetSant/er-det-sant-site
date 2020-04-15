@@ -7,7 +7,7 @@
       er flust av vranglære, feilinformasjon, kyniske aktører og direkte svindel. Velg et hovedtema,
       eller søk på det du lurer på.
     </p>
-    <ul class="topic-list"><li v-for="topic in topics" :key="topic.slug"><nuxt-link :to="`/${topic.slug}`">{{ topic.name }}</nuxt-link></li></ul>
+    <ul class="topic-list"><li v-for="topic in topics" :key="topic.slug"><nuxt-link :to="`/${topic.slug}`">{{ topic.title }}</nuxt-link></li></ul>
     <Search />
   </div>
 </template>
