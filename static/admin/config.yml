@@ -38,8 +38,8 @@ collections:
         name: 'topic'
         widget: 'relation'
         collection: 'topics'
-        displayFields: ['title']
-        searchFields: ['title']
+        displayFields: ['name']
+        searchFields: ['name']
         valueField: '{{relation}}'
       - label: 'Tekst'
         name: 'text'
@@ -50,13 +50,6 @@ collections:
         dateFormat: 'YYYY-MM-DD'
         timeFormat: 'HH:mm'
         format: 'YYYY-MM-DD HH:mm'
-      - label: 'Forfatter'
-        name: 'author'
-        widget: 'relation'
-        collection: 'authors'
-        displayFields: ['name']
-        searchFields: ['name']
-        valueField: 'name'
       - label: 'Kilder'
         name: 'sources'
         widget: 'list'
