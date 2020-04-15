@@ -46,7 +46,6 @@ export default {
       const articles = this.$store.state.articles
       return articles.find((article) => {
         const slug = this.$route.params.topic + '/' + this.$route.params.article
-        console.log(slug, article.slug)
         return article.slug === slug
       })
     },

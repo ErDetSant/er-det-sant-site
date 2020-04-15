@@ -39,7 +39,6 @@ export default {
     articles () {
       const articles = this.$store.state.articles
       return articles.filter((article) => {
-        console.log(article)
         return this.$route.params.topic === article.slug.split('/')[0]
       })
     },
