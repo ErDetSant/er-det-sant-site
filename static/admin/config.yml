@@ -62,6 +62,22 @@ collections:
           name: 'url'
           widget: 'string'
           hint: 'URL, starter med https://…'
+  - name: 'authors'
+    label: 'Forfattere'
+    label_singular: 'Forfatter'
+    folder: 'content/authors'
+    create: true
+    delete: false
+    slug: '{{slug}}'
+    format: 'json'
+    fields:
+      - label: 'Navn'
+        name: 'name'
+        widget: 'string'
+        hint: 'Fornavn og etternavn'
+      - label: 'Kort beskrivelse'
+        name: 'description'
+        widget: 'string'
   - name: 'settings'
     label: 'Sideinformasjon'
     delete: false
@@ -81,20 +97,3 @@ collections:
           - label: 'Forsidetekst'
             name: 'frontpagetext'
             widget: 'markdown'
-      - name: 'authors'
-        label: 'Forfattere'
-        file: 'content/site/authors.json'
-        description: 'Author descriptions'
-        fields:
-          - name: 'authors'
-            label: 'Forfattere'
-            label_singular: 'Forfatter'
-            widget: list
-            fields:
-              - label: 'Navn'
-                name: 'name'
-                widget: 'string'
-                hint: 'Fornavn og etternavn'
-              - label: 'Kort beskrivelse'
-                name: 'description'
-                widget: 'string'

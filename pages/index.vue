@@ -1,12 +1,8 @@
 <template>
   <div class="home-page">
     <h1>Hva lurer du på?</h1>
-    <p class="intro">
-      <em>Er det sant?</em> er en tjeneste fra <a href="https://skepsis.no">foreningen Skepsis</a>.
-      Her kan du finne svar på temaer som kan være vanskelig å finne ut av på egenhånd fordi internett
-      er flust av vranglære, feilinformasjon, kyniske aktører og direkte svindel. Velg et hovedtema,
-      eller søk på det du lurer på.
-    </p>
+    <div class="intro" v-html="$md.render(site.frontpagetext)">
+    </div>
     <ul class="topic-list"><li v-for="topic in topics" :key="topic.slug"><nuxt-link :to="`/${topic.slug}`">{{ topic.title }}</nuxt-link></li></ul>
     <Search />
   </div>
@@ -37,7 +33,10 @@ export default {
   computed: {
     topics() {
       return this.$store.state.topics
-    }
+    },
+    site() {
+      return this.$store.state.siteInfo
+    },
   },
 }
 </script>
