@@ -1,7 +1,7 @@
 {
   "title": "Er GMO helsefarlig?",
   "text": "Ja.",
-  "topic": "matproduksjon",
+  "topic": "Matproduksjon",
   "tags": [
     "gmo",
     "landbruk",
@@ -17,5 +17,6 @@
       "name": "Genøk",
       "url": "https://genok.no"
     }
-  ]
+  ],
+  "date": "2020-04-15 16:27"
 }
