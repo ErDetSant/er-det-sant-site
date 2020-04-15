@@ -26,8 +26,9 @@ collections:
       Obs! Dersom du skal skrive en artikkel innenfor et emne som ennå
       ikke eksisterer, vennligst opprett emnet før du begynner å skrive.
     folder: 'content/articles'
+    path: '{{topic}}/{{slug}}'
     create: true
-    slug: '{{topic}}/{{slug}}'
+    slug: '{{slug}}'
     format: 'json'
     fields:
       - label: 'Tittel'
