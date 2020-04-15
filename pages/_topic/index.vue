@@ -2,6 +2,7 @@
   <div class="page">
     <h2><nuxt-link to="/">⇦ Tilbake til start</nuxt-link></h2>
     <h1>{{ topic.title }}:</h1>
+    <div v-html="$md.render(topic.description)"></div>
     <ul class="article-list"><li v-for="article in articles" :key="article.slug"><nuxt-link :to="`/${article.slug}`">{{ article.title }}</nuxt-link></li></ul>
     <Search />
   </div>

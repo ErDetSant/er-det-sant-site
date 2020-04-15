@@ -33,19 +33,21 @@ export default {
     topic () {
       const topics = this.$store.state.topics
       return topics.find((topic) => {
-        return this.$route.params.topic = topic.slug
+        return this.$route.params.topic === topic.slug
       })
     },
     articles () {
       const articles = this.$store.state.articles
       return articles.filter((article) => {
-        return this.$route.params.topic = article.topic
+        return this.$route.params.topic === article.slug.split('/')[0]
       })
     },
     article () {
       const articles = this.$store.state.articles
       return articles.find((article) => {
-        return this.$route.params.article = article.slug
+        const slug = this.$route.params.topic + '/' + this.$route.params.article
+        console.log(slug, article.slug)
+        return article.slug === slug
       })
     },
   },
