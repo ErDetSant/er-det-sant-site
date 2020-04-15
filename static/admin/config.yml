@@ -38,9 +38,9 @@ collections:
         name: 'topic'
         widget: 'relation'
         collection: 'topics'
-        displayFields: ['name']
-        searchFields: ['name']
-        valueField: 'name'
+        displayFields: ['title']
+        searchFields: ['title']
+        valueField: 'title'
       - label: 'Tekst'
         name: 'text'
         widget: 'markdown'
