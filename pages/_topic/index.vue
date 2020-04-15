@@ -32,7 +32,7 @@ export default {
     topic () {
       const topics = this.$store.state.topics
       return topics.find((topic) => {
-        return this.$route.params.topic = topic.slug
+        return this.$route.params.topic === topic.slug
       })
     },
     articles () {
