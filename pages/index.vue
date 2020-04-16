@@ -15,8 +15,12 @@ export default {
   name: 'HomePage',
   head () {
     return {
-      title: 'Er det sant? – Skepsis',
+      title: this.site.title,
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: this.site.title },
+        { hid: 'og:description', name: 'og:description', content: this.site.description },
+      ]
     }
   },
   transition (to, from) {

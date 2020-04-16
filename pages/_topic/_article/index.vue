@@ -15,7 +15,14 @@ export default {
   name: 'ArticlePage',
   head () {
     return {
-      title: this.article.title + ' — ' + this.topic.title + ' — Er det sant? – Skepsis',
+      title: this.article.title + ' — ' + this.topic.title + ' — ' + this.site.title,
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.article.title + ' — ' + this.topic.title + ' — ' + this.site.title,
+        },
+      ]
     }
   },
   transition (to, from) {
@@ -48,6 +55,9 @@ export default {
         const slug = this.$route.params.topic + '/' + this.$route.params.article
         return article.slug === slug
       })
+    },
+    site() {
+      return this.$store.state.siteInfo
     },
   },
 }

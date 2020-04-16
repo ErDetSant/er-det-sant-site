@@ -6,7 +6,11 @@ export const state = () => ({
   topics: [],
   authors: [],
   articles: [],
-  siteInfo: [],
+  siteInfo: {
+    title: 'Er det sant? — Skepsis',
+    description: 'En tjeneste fra foreningen Skepsis',
+    frontpagetext: '*Er det sant?* er en tjeneste fra [foreningen Skepsis](https://skepsis.no/). Her kan du finne svar på temaer som kan være vanskelig å finne ut av på egenhånd fordi internett er flust av vranglære, feilinformasjon, kyniske aktører og direkte svindel. Velg et hovedtema, eller søk på det du lurer på.',
+  },
 })
 
 export const mutations = {

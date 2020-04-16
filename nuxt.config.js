@@ -14,11 +14,21 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: info.title || '',
+    title: info.title || 'Er det sant? — Skepsis',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: info.description || '' }
+      { hid: 'description', name: 'description', content: info.description || 'En tjeneste fra foreningen Skepsis' },
+      // Open Graph
+      { hid: 'og:title', name: 'og:title', content: info.title || '' },
+      { hid: 'og:description', name: 'og:description', content: info.description || 'En tjeneste fra foreningen Skepsis' },
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:url', name: 'og:url', content: 'https://erdetsant.skepsis.no' },
+      { hid: 'og:image', name: 'og:image', content: 'https://erdetsant.skepsis.no/erdetsant.png' },
+      // Twitter Card
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@SkepsisNorge' },
+      { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: 'Er det sant? delingsbilde' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

@@ -15,7 +15,10 @@ export default {
   name: 'TopicPage',
   head () {
     return {
-      title: this.topic.title + ' — Er det sant? – Skepsis',
+      title: this.topic.title + ' — ' + this.site.title,
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: this.topic.title + ' — ' + this.site.title },
+      ]
     }
   },
   transition (to, from) {
@@ -41,6 +44,9 @@ export default {
       return articles.filter((article) => {
         return this.$route.params.topic === article.slug.split('/')[0]
       })
+    },
+    site() {
+      return this.$store.state.siteInfo
     },
   }
 }
