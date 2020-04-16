@@ -66,9 +66,9 @@ collections:
         name: 'author'
         widget: 'relation'
         collection: 'authors'
-        displayFields: ['name']
-        searchFields: ['name']
-        valueField: 'name'
+        displayFields: ['title']
+        searchFields: ['title']
+        valueField: 'title'
   - name: 'authors'
     label: 'Forfattere'
     label_singular: 'Forfatter'
