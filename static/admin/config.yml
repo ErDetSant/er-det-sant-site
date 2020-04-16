@@ -79,7 +79,7 @@ collections:
     format: 'json'
     fields:
       - label: 'Navn'
-        name: 'name'
+        name: 'title'
         widget: 'string'
         hint: 'Fornavn og etternavn'
       - label: 'Kort beskrivelse'
