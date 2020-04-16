@@ -20,7 +20,7 @@ export default {
       meta: [
         { hid: 'og:title', name: 'og:title', content: this.site.title },
         { hid: 'og:description', name: 'og:description', content: this.site.description },
-      ]
+      ],
     }
   },
   transition (to, from) {

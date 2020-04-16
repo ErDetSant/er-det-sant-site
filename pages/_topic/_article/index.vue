@@ -15,14 +15,14 @@ export default {
   name: 'ArticlePage',
   head () {
     return {
-      title: this.article.title + ' — ' + this.topic.title + ' — ' + this.site.title,
+      title: this.article.title + ' — ' + this.site.title,
       meta: [
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.article.title + ' — ' + this.topic.title + ' — ' + this.site.title,
+          content: this.article.title + ' — ' + this.site.title,
         },
-      ]
+      ],
     }
   },
   transition (to, from) {
